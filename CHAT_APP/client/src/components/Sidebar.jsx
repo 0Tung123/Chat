@@ -51,6 +51,11 @@ const Sidebar = () => {
     }
   },[socketConnection,user])
 
+const handleLogout = ()=>{
+    dispatch(logout())
+    navigate("/email")
+    localStorage.clear()
+}
 
 
   return (
@@ -90,13 +95,10 @@ const Sidebar = () => {
             userId={user?._id}
             />
           </button>
-          <button
-            title="logout"
-            className=" w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-slate-200 rounded"
-          >
-            <span className="-ml-2">
-              <SlLogout size={20} />
-            </span>
+         <button title='logout' className='w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-slate-200 rounded' onClick={handleLogout}>
+               <span className='-ml-2'>
+                  <BiLogOut size={20}/>
+              </span>
           </button>
         </div>
       </div>
